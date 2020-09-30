@@ -14,12 +14,12 @@
             <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
             <h5><label>Issue #:</label> @Model.IssueNumber</h5>
             <h5><label>Favorite:</label> @(Model.Favorite ? "Yes" : "No")</h5>
-            @if (Model.Artitsts.Count > 0)
+            @if (Model.Artists.Count > 0)
             {
                 <h5>Artitst:</h5>
                 <div>
                     <ul>
-                        @foreach (var artist in Model.Artitsts)
+                        @foreach (var artist in Model.Artists)
                         {
                             <li>@artist.DisplayText</li>
                         }
