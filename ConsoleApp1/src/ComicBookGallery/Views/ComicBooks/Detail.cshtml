@@ -6,20 +6,32 @@
 }
 
 
-<h1>@Model.SeriesTitle</h1>
-<h2>Issue #@Model.IssueNumber</h2>
+<h2>@Model.DisplayText</h2>
 
-<h5>Description:</h5>
-<div>@Html.Raw(Model.DescriptionHtml)</div>
-@if (Model.Artitsts.Count > 0)
-{
-    <h5>Artitst:</h5>
-    <div>
-        <ul>
-            @foreach (var artist in Model.Artitsts)
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
+            <h5><label>Issue #:</label> @Model.IssueNumber</h5>
+            <h5><label>Favorite:</label> @(Model.Favorite ? "Yes" : "No")</h5>
+            @if (Model.Artitsts.Count > 0)
             {
-                <li>@artist.DisplayText</li>
+                <h5>Artitst:</h5>
+                <div>
+                    <ul>
+                        @foreach (var artist in Model.Artitsts)
+                        {
+                            <li>@artist.DisplayText</li>
+                        }
+                    </ul>
+                </div>
             }
-        </ul>
+        </div>
+        <h5>Description:</h5>
+        <div>@Html.Raw(Model.DescriptionHtml)</div>
     </div>
-}
+    <div class="col-md-6">
+        <img src="/Images/@Model.CoverImageFileName"
+             alt="@Model.DisplayText" class="img-responsive" />
+    </div>
+</div>
