@@ -9,5 +9,7 @@ namespace ComicBookGallery.Models
 	{
 		public string Role { get; set; }
 		public string Name { get; set; }
+
+		public string DisplayText => $"{Role}: {Name}";
 	}
 }

@@ -15,22 +15,9 @@ namespace ComicBookGallery.Models
 		public bool Favorite { get; set; }
 
 
-		public string DisplayText
-		{
-			get
-			{
-				return SeriesTitle + " #" + IssueNumber;
-			}
-		}
-
-		//series-title-issuenumber.jpg
-		public string CoverImageFileName
-		{
-			get
-			{
-				return $"{SeriesTitle.Replace(" ", "-").ToLower()}-{IssueNumber}.jpg";
-			}
-		}
+		public string DisplayText => SeriesTitle + " #" + IssueNumber;
+		//seriesTitle-issuenumber.jpg
+		public string CoverImageFileName => $"{SeriesTitle.Replace(" ", "-").ToLower()}-{IssueNumber}.jpg";
 		//{
 		//	"Script: Dan Slott",
 		//	"Pencils: Humberto Ramos",
