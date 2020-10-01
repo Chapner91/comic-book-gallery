@@ -61,7 +61,15 @@ namespace ComicBookGallery.Data
 
 		public ComicBook GetComicBook(int id)
 		{
-			ComicBook comicBook = _comicBooks.Single(comic => comic.ID == id);
+			ComicBook comicBook;
+			try
+			{
+				comicBook = _comicBooks.Single(comic => comic.ID == id);
+			}
+			catch (System.InvalidOperationException)
+			{
+				comicBook = null;
+			}
 			return comicBook;
 		}
 	}
